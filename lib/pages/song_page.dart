@@ -41,38 +41,45 @@ class SongPage extends StatelessWidget {
                 ),
 
                 // album artwork
-                NeuBox(
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.asset("assets/images/adiyeimg.jpg"),
-                      ),
-
-                      // song and artist name and heart icon
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          // song and artist name
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Adiye',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
-                              ),
-                              Text('Dhibu Ninan Thomas and Kapil Kapilan'),
-                            ],
+                Padding(
+                  padding: const EdgeInsets.all(55.0),
+                  child: NeuBox(
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Padding(
+                            padding: const EdgeInsets.all(28.0),
+                            child: Image.asset("assets/images/adiyeimg.jpg"),
                           ),
-                          // heart icon: like
-                          Icon(
-                            Icons.favorite,
-                            color: Colors.red,
-                          )
-                        ],
-                      ),
-                    ],
+                        ),
+
+                        // song and artist name and heart icon
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            // song and artist name
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Adiye',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                                Text('Dhibu Ninan Thomas and Kapil Kapilan'),
+                              ],
+                            ),
+                            // heart icon: like
+                            Icon(
+                              Icons.favorite,
+                              color: Colors.red,
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 //song duration progress bar
