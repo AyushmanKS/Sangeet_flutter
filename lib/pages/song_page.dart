@@ -22,7 +22,9 @@ class SongPage extends StatelessWidget {
                     children: [
                       // back button
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         icon: const Icon(Icons.arrow_back_ios),
                       ),
                       // title
@@ -83,17 +85,16 @@ class SongPage extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 25),
+                const SizedBox(height: 18),
 
                 //song duration progress bar
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Column(
-                    children: [
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                const Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 25),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          // start time
                           Text('0:00'),
 
                           // shuffle
@@ -106,17 +107,59 @@ class SongPage extends StatelessWidget {
                           Text('0:00'),
                         ],
                       ),
-                      Slider(
-                        min: 0,
-                        max: 100,
-                        value: 50,
-                        activeColor: Colors.orange,
-                        onChanged: (value) {},
-                      )
+                    ),
+                  ],
+                ),
+                // Slider
+                Padding(
+                  padding: const EdgeInsets.all(14.0),
+                  child: Slider(
+                    min: 0,
+                    max: 100,
+                    value: 50,
+                    activeColor: Colors.orange,
+                    onChanged: (value) {},
+                  ),
+                ),
+
+                // playback controls
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 34.0),
+                  child: Row(
+                    children: [
+                      // skip previous
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: const NeuBox(
+                            child: Icon(Icons.skip_previous),
+                          ),
+                        ),
+                      ),
+                      // play/pause button
+                      const SizedBox(width: 10),
+                      Expanded(
+                        flex: 2,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: const NeuBox(
+                            child: Icon(Icons.play_arrow),
+                          ),
+                        ),
+                      ),
+                      // skip forward
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: const NeuBox(
+                            child: Icon(Icons.skip_next),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
-                // playback controls
               ],
             )),
       ),
