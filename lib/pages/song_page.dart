@@ -82,8 +82,40 @@ class SongPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                //song duration progress bar
 
+                const SizedBox(height: 25),
+
+                //song duration progress bar
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Column(
+                    children: [
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          // start time
+                          Text('0:00'),
+
+                          // shuffle
+                          Icon(Icons.shuffle),
+
+                          // repeat
+                          Icon(Icons.repeat),
+
+                          // end time
+                          Text('0:00'),
+                        ],
+                      ),
+                      Slider(
+                        min: 0,
+                        max: 100,
+                        value: 50,
+                        activeColor: Colors.orange,
+                        onChanged: (value) {},
+                      )
+                    ],
+                  ),
+                ),
                 // playback controls
               ],
             )),
