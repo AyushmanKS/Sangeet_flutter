@@ -11,8 +11,10 @@ class SongPage extends StatelessWidget {
     return Consumer<PlaylistProvider>(
       builder: (context, value, child) {
         // get playlist
+        final playlist = value.playList;
 
         // get current song index
+        final currentSong = playlist[value.currentSongIndex ?? 0];
 
         // returning scaffold ui from here
         return SafeArea(
@@ -58,12 +60,12 @@ class SongPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                             child: Padding(
                               padding: const EdgeInsets.all(28.0),
-                              child: Image.asset("assets/images/adiyeimg.jpg"),
+                              child: Image.asset(currentSong.albumArtImagePath),
                             ),
                           ),
 
                           // song and artist name and heart icon
-                          const Row(
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               // song and artist name
@@ -71,16 +73,16 @@ class SongPage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Adiye',
-                                    style: TextStyle(
+                                    currentSong.songName,
+                                    style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20),
                                   ),
-                                  Text('Dhibu Ninan Thomas and Kapil Kapilan'),
+                                  Text(currentSong.artistName),
                                 ],
                               ),
                               // heart icon: like
-                              Icon(
+                              const Icon(
                                 Icons.favorite,
                                 color: Colors.red,
                               )

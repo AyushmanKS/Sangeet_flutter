@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
 // goToSong function
   void goToSong(int songIndex) {
     // update current song index
-    PlaylistProvider().currentSongIndex = songIndex;
+    playlistProvider.currentSongIndex = songIndex;
 
     // navigate to song page
     Navigator.push(
